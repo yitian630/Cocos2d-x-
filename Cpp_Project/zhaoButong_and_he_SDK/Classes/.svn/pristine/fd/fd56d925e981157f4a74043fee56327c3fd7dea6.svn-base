@@ -1,0 +1,94 @@
+//
+//  ASStartGame.cpp
+//  Different
+//
+//  Created by qiyuezhen on 15-4-22.
+//
+//
+
+#include "ASStartGame.h"
+#include "ASMainScene.h"
+#include "ASHead.h"
+USING_NS_CC;
+
+Scene* ASStartGame::createScene()
+{
+    // 'scene' is an autorelease object
+    auto scene = Scene::create();
+    
+    // 'layer' is an autorelease object
+    auto layer = ASStartGame::create();
+    
+    // add layer as a child to scene
+    scene->addChild(layer);
+    
+    // return the scene
+    return scene;
+}
+
+// on "init" you need to initialize your instance
+bool ASStartGame::init()
+{
+    //////////////////////////////
+    // 1. super init first
+    if ( !Layer::init() )
+    {
+        return false;
+    }
+    
+    UserDefault::getInstance()->setIntegerForKey(SCORE, 0);
+    UserDefault::getInstance()->setIntegerForKey(LEVEL, 0);
+    
+    
+    
+
+    
+    
+    
+    
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    float ratioY=visibleSize.height/1136.0;
+    
+    
+    auto  bg=Sprite::create("bg_start.png");
+    bg->setPosition(Vec2(0, 0));
+    bg->setScaleY(ratioY);
+    bg->setAnchorPoint(Vec2::ZERO);
+    this->addChild(bg);
+    
+    
+    
+    
+    
+    
+    auto startItem = MenuItemImage::create(
+                                           "button_play.png",
+                                           "button_play2.png",
+                                           CC_CALLBACK_1(ASStartGame::startCallback, this));
+    
+	startItem->setPosition(Vec2(visibleSize.width/2.0,visibleSize.height/2.0-200));
+    // create menu, it's an autorelease object
+    auto menu = Menu::create(startItem, NULL);
+    menu->setPosition(Vec2::ZERO);
+    this->addChild(menu, 1);
+    //
+    
+    
+    
+    
+    return true;
+}
+void ASStartGame::startCallback(cocos2d::Ref* pSender)
+{
+    
+    
+    
+    
+    
+    
+    
+    auto mainScene=ASMainScene::createScene();
+    auto director = Director::getInstance();
+    director->replaceScene(mainScene);
+}
