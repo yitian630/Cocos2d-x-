@@ -61,38 +61,38 @@ function ASShopScene:init()
             -- 10米
             cc.UserDefault:getInstance():setIntegerForKey("integer", 10)
         elseif id == "002" then
-            -- 100米
-            cc.UserDefault:getInstance():setIntegerForKey("integer", 100)
+            -- 120米
+            cc.UserDefault:getInstance():setIntegerForKey("integer", 120)
         elseif id == "003" then
-            -- 200米
-            cc.UserDefault:getInstance():setIntegerForKey("integer", 200)
+            -- 250米
+            cc.UserDefault:getInstance():setIntegerForKey("integer", 250)
         elseif id == "004" then
-            -- 400米
-            cc.UserDefault:getInstance():setIntegerForKey("integer", 400)
+            -- 550米
+            cc.UserDefault:getInstance():setIntegerForKey("integer", 550)
         elseif id == "005" then
-            -- 500米
-            cc.UserDefault:getInstance():setIntegerForKey("integer", 500)
+            -- 700米
+            cc.UserDefault:getInstance():setIntegerForKey("integer", 700)
         elseif id == "006" then
-            -- 600米
-            cc.UserDefault:getInstance():setIntegerForKey("integer", 600)
+            -- 900米
+            cc.UserDefault:getInstance():setIntegerForKey("integer", 900)
         elseif id == "007" then 
-            -- 800米
-            cc.UserDefault:getInstance():setIntegerForKey("integer", 800)
+            -- 1200米
+            cc.UserDefault:getInstance():setIntegerForKey("integer", 1200)
         elseif id == "008" then
-            -- 1000米
-            cc.UserDefault:getInstance():setIntegerForKey("integer", 1000)
-        elseif id == "009" then
-            -- 1500米 
+            -- 1500米
             cc.UserDefault:getInstance():setIntegerForKey("integer", 1500)
+        elseif id == "009" then
+            -- 2500米 
+            cc.UserDefault:getInstance():setIntegerForKey("integer", 2500)
         elseif id == "010" then
-            -- 2000米
-            cc.UserDefault:getInstance():setIntegerForKey("integer", 2000)
+            -- 3500米
+            cc.UserDefault:getInstance():setIntegerForKey("integer", 3500)
         end
     end
     
     local function getString(i)
         --todo
-        if (i < 9) then
+        if (i <= 9) then
           return "00"..i
         else 
           return "0"..i
@@ -139,31 +139,31 @@ function ASShopScene:init()
         	layer:addChild(label_m)
             if i == 2 then
                 label_d:setString("100点")
-                label_m:setString("100米")
+                label_m:setString("120米")
             elseif i == 3 then
                 label_d:setString("200点")
-                label_m:setString("200米")
+                label_m:setString("250米")
             elseif i == 4 then
                 label_d:setString("400点")
-                label_m:setString("400米")
+                label_m:setString("550米")
             elseif i == 5 then
                 label_d:setString("500点")
-                label_m:setString("500米")
+                label_m:setString("700米")
             elseif i == 6 then
                 label_d:setString("600点")
-                label_m:setString("600米")
+                label_m:setString("900米")
             elseif i == 7 then
                 label_d:setString("800点")
-                label_m:setString("800米")
+                label_m:setString("1200米")
             elseif i == 8 then
                 label_d:setString("1000点")
-                label_m:setString("1000米")
+                label_m:setString("1500米")
             elseif i == 9 then
                 label_d:setString("1500点")
-                label_m:setString("1500米")
+                label_m:setString("2500米")
             elseif i == 10 then
                 label_d:setString("2000点")
-                label_m:setString("2000米")
+                label_m:setString("3500米")
             end
 
             buyItem = cc.MenuItemImage:create("shopUI/buy.png","shopUI/buy_press.png")
